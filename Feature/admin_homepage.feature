@@ -27,18 +27,38 @@ Scenario: Checking login password of customer page in access module
 Given Admin homepage
 When I enter member username
 Then i will move to change login password details can modify the member details
-And click on submit button
-And fill the new password and confirm new password fields
-And click on back button
 
 @tag4
 Scenario: checking change group for member page 
 
-Given Admin homepage
+Given back button and move to admin home page
 When i click on change group submit button
-Then memeber page should display current group new group comments and history
-And group combo box have certain values
-And comment should accept only 0 to 40 characters
-And verify back button
+Then Checking the change group functionality
 
+@tag5
+Scenario: Checking the advertisement module
 
+Given moving to advertisement module
+When I click on manage advertisement's submit button
+Then check advertisement module
+
+@tag6
+
+Scenario: Checking account information module
+
+Given I on advertisement page now i have click on home
+When I enter the credentials
+Then check the account inforamntion module
+
+@tag7
+
+Scenario: Checking member info module
+Given back button from account info module and move to admin homepage
+When I click payment system to member
+Then check payment 
+
+@tag8
+Scenario: Checking the loan module
+Given I am on member profile page
+When  i click on grant loan sublit button
+Then confirm loan
