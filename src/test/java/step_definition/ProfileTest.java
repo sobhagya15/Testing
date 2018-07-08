@@ -187,6 +187,18 @@ public class ProfileTest {
 		}
 		Thread.sleep(2000);
 		a.accept();
+		
+		   driver.findElement(By.id("submenu1.1")).click();
+		   driver.findElement(By.name("oldPassword")).sendKeys("4321");
+		   driver.findElement(By.name("newPassword")).sendKeys("1234");
+		   driver.findElement(By.name("newPasswordConfirmation")).sendKeys("1234");
+		   
+		   driver.findElement(By.className("button")).click(); 
+		   
+		   Alert b = driver.switchTo().alert();
+		   Thread.sleep(2000);
+		   b.accept();
+		   
 
 	    
 	}
