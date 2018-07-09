@@ -1,4 +1,4 @@
-package admin_view;
+package step_definition;
 
 import static org.testng.Assert.assertEquals;
 
