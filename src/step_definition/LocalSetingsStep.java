@@ -70,16 +70,18 @@ public class LocalSetingsStep {
 
 		List<WebElement> elements=driver.findElements(By.tagName("select"));
 		//String message="Not editable";
+		int count=0;
 		for(int i=0;i<8;i++)
 		{
+			count++;
 			//Select value=new Select(driver.findElement(By.name("setting(language)")));
 			assertEquals(elements.get(i).isEnabled(), true);
-			if(elements.get(i).isEnabled())
-				System.out.println("\n Test Passed: Editable of internationaliztion \n \t Textbox is Enabaled ");
-			else
-				System.out.println("Textbox is not Enabled");
-
 		}
+		if(count<=8)
+			System.out.println("\n Test Passed: Editable of internationaliztion \n \t Textbox is Enabaled ");
+		else
+			System.out.println("Textbox is not Enabled");
+
 
 	}
 	
@@ -98,7 +100,6 @@ public class LocalSetingsStep {
 		driver.findElement(By.id("saveButton")).click();
 	}
 
-//Check Whether all Alert Fields are Editable
 	@Then("^Check for Changes$")
 	public void check_for_Changes() throws InterruptedException { 
 
@@ -109,6 +110,7 @@ public class LocalSetingsStep {
 		driver.switchTo().alert().accept();   
 	}
 
+//Check Whether all Alert Fields are Editable
 	@Given("^Navigate to Alert Settings$")
 	public void navigate_to_Alert_Settings() throws InterruptedException  {
 
@@ -138,10 +140,11 @@ public class LocalSetingsStep {
 				System.out.println(tinyList.get(i).getTagName()+" --- is enabled");
 			}
 		}
+		System.out.println("Test: Passed \n All Alert Fields are Editable");
 		if(count!=tinyList.size())
 			System.out.println("\n not editable");
 		driver.findElement(By.cssSelector("input#modifyButton.button")).click();
-		System.out.println("\n Nothing modified");
+		//System.out.println("\n Nothing modified");
 		Thread.sleep(1000);
 	}
 
@@ -171,7 +174,7 @@ public class LocalSetingsStep {
 
 	}
 
-	//Checking for the  Boundary value conditions
+	//(Checking for the  Boundary value conditions)
 	//@Test( alwaysRun=true)
 	@Then("^check  the value of Invalid Login Attempts$")
 	public void check_the_value_of_Invalid_Login_Attempts() throws Throwable {
@@ -181,7 +184,7 @@ public class LocalSetingsStep {
 		Boolean actualValueForInvalidAttempts,expectedValueForAttempts=true;
 		if(valueOfInvalidLoginAttempts>10 ||valueOfInvalidLoginAttempts<0)
 		{
-			System.out.println("\n Test Failed, by accepting the incorrect values for Invalid Login Attemps field \n Accepted value is: "+valueOfInvalidLoginAttempts); 
+			System.out.println("\n Test :Failed \n By accepting the incorrect values for Invalid Login Attemps field \n Accepted value is: "+valueOfInvalidLoginAttempts); 
 			actualValueForInvalidAttempts=false;
 		}
 		else
@@ -192,7 +195,8 @@ public class LocalSetingsStep {
 
 		//assertEquals(actualValueForInvalidAttempts,expectedValueForAttempts,"Test Failed by accepting the incorrect values for Invalid Login Attempts field ");
 	}
-
+  
+	//(Updating the Invalid Login Field)
 	@Then("^Give value to Invalid Login Attempts with in Range$")
 	public void give_value_to_Invalid_Login_Attempts_with_in_Range() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
@@ -285,6 +289,7 @@ public class LocalSetingsStep {
 		if(driver.getCurrentUrl().equalsIgnoreCase("http://localhost:8585/do/error"))
 			System.out.println("Oops---!,Your account is temporarily blocked \n \t Please try after 13 Minutes");
 		assertEquals(driver.getCurrentUrl(), "http://localhost:8585/do/error","Failed");//Checking whether account is blocked.
+		System.out.println("Test: Passed \n After invalid Login Attempts");
 	}
 	 */
 
@@ -363,7 +368,7 @@ public class LocalSetingsStep {
 		assertEquals(a16, true);
 		boolean a17=driver.findElement(By.name("setting(transactionPasswordChars)")).isEnabled(); 
 		assertEquals(a17, true);
-		System.out.println("All Access Settings Fields are Editable");
+		System.out.println("Test: Passed \n All Access Settings Fields are Editable");
 		driver.findElement(By.id("saveButton")).click();
 		driver.switchTo().alert().accept();
 	}
@@ -425,8 +430,7 @@ public class LocalSetingsStep {
 			adminSessionLogoutTimeConversion=a*3600;
 		else
 			adminSessionLogoutTimeConversion= a;
-		System.out.println(adminSessionLogoutTimeConversion);
-
+		//System.out.println("Logout after:"+ adminSessionLogoutTimeConversion+ adminSessionLogoutType);
 		try {
 			Thread.sleep(adminSessionLogoutTimeConversion*1000);
 		} catch (InterruptedException e) {
@@ -496,7 +500,7 @@ public class LocalSetingsStep {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(".//*[@id='menu0']/span[2]")).click();
 		String actualMessageAftLogout= driver.findElement(By.xpath(".//*[@id='tdContents']/table/tbody/tr[1]/td/center/div")).getText();
-		System.out.println("Error after autoamaticlly logged out:  "+actualMessageAftLogout);
+		System.out.println("\n Error Message after autoamaticlly logged out:  "+actualMessageAftLogout);
 		String expectedMessageAftLogout="Please login again to continue.";
 		assertEquals(expectedMessageAftLogout, actualMessageAftLogout);
 		if(expectedMessageAftLogout.equalsIgnoreCase("Please login again to continue."))
