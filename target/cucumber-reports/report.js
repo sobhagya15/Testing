@@ -16,7 +16,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 4,
-      "name": "@tag"
+      "name": "@tag0"
     }
   ]
 });
@@ -39,21 +39,21 @@ formatter.match({
   "location": "LocalSetingsStep.fire_Home_Page()"
 });
 formatter.result({
-  "duration": 8970719976,
+  "duration": 13186039958,
   "status": "passed"
 });
 formatter.match({
   "location": "LocalSetingsStep.navigate_to_Settings_and_click_On_Local_Settings()"
 });
 formatter.result({
-  "duration": 158651722,
+  "duration": 274711858,
   "status": "passed"
 });
 formatter.match({
   "location": "LocalSetingsStep.local_Settings_Open()"
 });
 formatter.result({
-  "duration": 894047750,
+  "duration": 1150751000,
   "status": "passed"
 });
 formatter.scenario({
@@ -84,14 +84,14 @@ formatter.match({
   "location": "LocalSetingsStep.click_on_Change_button()"
 });
 formatter.result({
-  "duration": 230569520,
+  "duration": 376163473,
   "status": "passed"
 });
 formatter.match({
   "location": "LocalSetingsStep.is_Editalble()"
 });
 formatter.result({
-  "duration": 227390102,
+  "duration": 300528814,
   "status": "passed"
 });
 formatter.scenario({
@@ -115,7 +115,7 @@ formatter.step({
 });
 formatter.step({
   "line": 18,
-  "name": "Submit the hanges",
+  "name": "Submit the Changes",
   "keyword": "Then "
 });
 formatter.step({
@@ -127,21 +127,171 @@ formatter.match({
   "location": "LocalSetingsStep.select_values_of_my_Interest()"
 });
 formatter.result({
-  "duration": 100477495,
+  "duration": 119628640,
   "status": "passed"
 });
 formatter.match({
-  "location": "LocalSetingsStep.submit_the_hanges()"
+  "location": "LocalSetingsStep.submit_the_Changes()"
 });
 formatter.result({
-  "duration": 794310174,
+  "duration": 963505989,
   "status": "passed"
 });
 formatter.match({
   "location": "LocalSetingsStep.check_for_Changes()"
 });
 formatter.result({
-  "duration": 10201169130,
+  "duration": 194585894,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 22,
+  "name": "to Check whether all Alert Fields are Editable",
+  "description": "",
+  "id": "local-settings-test;to-check-whether-all-alert-fields-are-editable",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 21,
+      "name": "@tag3"
+    }
+  ]
+});
+formatter.step({
+  "line": 23,
+  "name": "Navigate to Alert Settings",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 24,
+  "name": "click on Change button inside the Alert Settings",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 25,
+  "name": "Whether are Editable",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 26,
+  "name": "Submit the Changes",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LocalSetingsStep.navigate_to_Alert_Settings()"
+});
+formatter.result({
+  "duration": 868098765,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.click_on_Change_button_inside_the_Alert_Settings()"
+});
+formatter.result({
+  "duration": 264646893,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.whether_are_Editable()"
+});
+formatter.result({
+  "duration": 2378840901,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.submit_the_Changes()"
+});
+formatter.result({
+  "duration": 287639930,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 29,
+  "name": "Check Incorrect Login field Text",
+  "description": "",
+  "id": "local-settings-test;check-incorrect-login-field-text",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 28,
+      "name": "@tag4"
+    }
+  ]
+});
+formatter.step({
+  "line": 30,
+  "name": "Navigate to Incorrect Login Text field",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 31,
+  "name": "Pass values and check",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LocalSetingsStep.navigate_to_Incorrect_Login_Text_field()"
+});
+formatter.result({
+  "duration": 322983473,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.pass_values_and_check()"
+});
+formatter.result({
+  "duration": 296116353,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 34,
+  "name": "Incorrect Login Attempts",
+  "description": "",
+  "id": "local-settings-test;incorrect-login-attempts",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 33,
+      "name": "@tag5"
+    }
+  ]
+});
+formatter.step({
+  "line": 35,
+  "name": "Extract from Incorrect Attemps field",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 36,
+  "name": "Try to Login With Invalid Credentials",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 37,
+  "name": "Check Whether Account Blocked",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LocalSetingsStep.extract_from_Incorrect_Attemps_field()"
+});
+formatter.result({
+  "duration": 3260062283,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.try_to_Login_With_Invalid_Credentials()"
+});
+formatter.result({
+  "duration": 10430439823,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LocalSetingsStep.check_Whether_Account_Blocked()"
+});
+formatter.result({
+  "duration": 4008519811,
   "status": "passed"
 });
 });
