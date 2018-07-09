@@ -177,7 +177,7 @@ public class LoginValid
 	{
 		String name ="admin";
 
-		driver.findElement(By.id("cyclosUsername")).sendKeys(name);
+		
 		
 		if(name.equals("admin"))
 		{
@@ -209,6 +209,8 @@ public class LoginValid
 			}*/
 			
 			System.out.println("there are no special characters");
+			
+			driver.findElement(By.id("cyclosUsername")).sendKeys(name);
 			
 			driver.findElement(By.xpath("//*[@id='virtualKeyboard']/div[1]/input[1]")).click();
 
@@ -247,7 +249,7 @@ public class LoginValid
 
 		//driver.findElement(By.id("cyclosUsername")).clear();
 
-		String name = "admin";
+		String name = "adm";
 		
 		if(name.length()<4)
 		{
@@ -397,13 +399,6 @@ public class LoginValid
 	    
 		if(passwd.matches(pattern))
 		{
-			System.out.println("password pattern is not satisfied");
-			Thread.sleep(3000);
-			driver.get("http://localhost:8585");
-		}
-		
-		else
-		{
 			System.out.println("password matches the pattern");
 			
 			driver.findElement(By.xpath("//*[@id='virtualKeyboard']/div[1]/input[1]")).click();
@@ -421,6 +416,15 @@ public class LoginValid
 			driver.switchTo().alert().accept();
 			
 			Thread.sleep(3000);
+
+		}
+		
+		else
+		{
+			
+			System.out.println("password pattern is not satisfied");
+			Thread.sleep(3000);
+			driver.get("http://localhost:8585");
 		}
 		
 		
@@ -486,6 +490,8 @@ public class LoginValid
              driver.findElement(By.xpath(".//*[@id='menu15']/span[2]")).click();
              
              driver.switchTo().alert().accept();
+             
+             driver.close();
 		}
 		catch (Exception e) {
 			//System.out.println(e.toString());
